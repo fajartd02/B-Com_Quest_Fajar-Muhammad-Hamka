@@ -40,24 +40,6 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 app.set('view engine', 'ejs');
 
-// READ Items and Create default if list url done have items
-app.get("/", function(req, res) {
-    Item.find({}, function(err, foundItems) {
-        if(foundItems.length === 0) {
-            Item.insertMany(defaultItems, function(err) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log("Sucessfully saved default items to DB.");
-                }
-            });
-            res.redirect("/");
-        } else {
-            res.render("list", {listTitle: "Today", newListItems: foundItems});
-        }
-    });
-});
-
 // CREATE
 app.post("/", function(req, res) { 
     const item = req.body.newItem;
@@ -75,6 +57,24 @@ app.post("/", function(req, res) {
             res.redirect("/" + listName);
         });
     }
+});
+
+// READ Items and Create default if list url done have items
+app.get("/", function(req, res) {
+    Item.find({}, function(err, foundItems) {
+        if(foundItems.length === 0) {
+            Item.insertMany(defaultItems, function(err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Sucessfully saved default items to DB.");
+                }
+            });
+            res.redirect("/");
+        } else {
+            res.render("list", {listTitle: "Today", newListItems: foundItems});
+        }
+    });
 });
 
 // DELETE
@@ -101,7 +101,7 @@ app.post("/delete", function(req, res) {
     
 });
 
-// Dyamic URL
+// Read Dyamic URL
 app.get("/:customListName", function(req, res) {
     const customListName = _.capitalize(req.params.customListName);
     
