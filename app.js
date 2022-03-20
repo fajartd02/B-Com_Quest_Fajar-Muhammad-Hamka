@@ -6,14 +6,16 @@ const _ = require("lodash");
 const dotenv = require("dotenv");
 const port = process.env.PORT || 3000;
 
+// use public folder
+app.use(express.static("public"));
+
+// use for req data from html
 app.use(bodyParser.urlencoded({extended: true}));
 
-// supaya bisa pake folder public
-app.use(express.static("public"));
+// config ENV
 dotenv.config();
 
-// URL end point: mongodb://localhost:27017
-// URL DB: todolistDB (Auto kebuat klo gk ada) 
+// URL Local end point: mongodb://localhost:27017
 mongoose.connect(process.env.MONGO_URL);
 
 const itemsSchema = {
@@ -29,6 +31,7 @@ const item3 = new Item({ name: "Internnet mentee" });
 
 const defaultItems = [item1, item2, item3];
 
+// one to many with items so url can dynamic
 const listSchema = {
     name: String,
     items: [itemsSchema]
@@ -37,7 +40,7 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 app.set('view engine', 'ejs');
 
-// CREATE DEFAULT AND DIRECT
+// READ Items and Create default if list url done have items
 app.get("/", function(req, res) {
     Item.find({}, function(err, foundItems) {
         if(foundItems.length === 0) {
@@ -74,6 +77,7 @@ app.post("/", function(req, res) {
     }
 });
 
+// DELETE
 app.post("/delete", function(req, res) {
     let checkItemId = req.body.checkbox;
     let listName = req.body.listName;
@@ -97,9 +101,13 @@ app.post("/delete", function(req, res) {
     
 });
 
+// Dyamic URL
 app.get("/:customListName", function(req, res) {
     const customListName = _.capitalize(req.params.customListName);
     
+    /*  Check name in database for URL, 
+        if it wasn't exist, it will create database default 
+    */
     List.findOne({name: customListName}, function(err, foundList) { 
         if(!err) {
             if(!foundList) {
