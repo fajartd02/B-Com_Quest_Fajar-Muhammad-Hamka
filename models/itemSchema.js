@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
 // one to many with items so url can dynamic
 const itemsSchema = {
