@@ -1,5 +1,6 @@
 const { Item, defaultItems } = require("../models/itemSchema");
 const { List } = require("../models/listSchema");
+const _ = require("lodash");
 
 // CREATE Items
 function addItemToDo(req, res) { 
