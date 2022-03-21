@@ -126,5 +126,5 @@ app.get("/:customListName", function(req, res) {
 });
 
 app.listen(port, function() {
-    console.log("Server running success");
+    console.log("Server running success at http://localhost:3000/");
 });
