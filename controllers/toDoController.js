@@ -39,7 +39,7 @@ function readAndCreateDefault(req, res) {
     });
 };
 
-// DELETE TO DO
+// DELETE AND UPDATE ToDO in Dynamic URL
 function deleteItemToDo(req, res) {
     let checkItemId = req.body.checkbox;
     let listName = req.body.listName;
@@ -57,6 +57,8 @@ function deleteItemToDo(req, res) {
         List.findOneAndUpdate({ name: listName }, {$pull: {items: {_id: checkItemId}}}, function(err, foundList) {
             if(!err) {
                 res.redirect("/" + listName);
+            } else {
+                console.log(err);
             }
         });
     }
