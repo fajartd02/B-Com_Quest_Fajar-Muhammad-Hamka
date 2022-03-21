@@ -2,7 +2,7 @@
 Nama: Fajar Muhammad Hamka<br />
 BNCC ID: BNCC2003002
 
-# The Next Level TodoList with Dynamic URL
+# The Next Level Company Profile TodoList with Dynamic URL
 I made this Todo List because I had difficulties in managing my to do list so this gave me the idea to make this application. I also hope to help others in making this application so that others can be more structured about what to do every day and help them to life easier.
 
 You can use it with this link:
