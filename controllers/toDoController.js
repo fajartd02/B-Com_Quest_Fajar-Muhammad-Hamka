@@ -54,6 +54,7 @@ function deleteItemToDo(req, res) {
         });
         res.redirect("/");
     } else {
+        // Update data with equals to listName and delete it
         List.findOneAndUpdate({ name: listName }, {$pull: {items: {_id: checkItemId}}}, function(err, foundList) {
             if(!err) {
                 res.redirect("/" + listName);
