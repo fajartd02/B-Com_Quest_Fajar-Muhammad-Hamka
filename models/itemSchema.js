@@ -11,4 +11,4 @@ const item3 = new Item({ name: "Internnet mentee" });
 
 const defaultItems = [item1, item2, item3];
 
-module.export = {itemsSchema, Item, defaultItems};
+module.export = { itemsSchema, Item, defaultItems };
