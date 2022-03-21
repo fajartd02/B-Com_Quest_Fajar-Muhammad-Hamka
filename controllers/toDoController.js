@@ -1,5 +1,5 @@
-const { itemsSchema, Item, defaultItems } = require("../models/itemSchema");
-const { listSchema, List } = require("../models/listSchema");
+const { Item, defaultItems } = require("../models/itemSchema");
+const { List } = require("../models/listSchema");
 
 // CREATE Items
 function addItemToDo(req, res) { 

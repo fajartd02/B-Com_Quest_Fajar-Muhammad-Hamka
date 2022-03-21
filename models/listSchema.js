@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const { itemsSchema } = require("./itemSchema");
 
 const listSchema = {
@@ -7,4 +9,4 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
-module.exports = {listSchema, List};
+module.exports = { listSchema, List };

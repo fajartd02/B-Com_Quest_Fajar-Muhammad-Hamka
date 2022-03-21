@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+// const routes = require("./routes/routes");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const dotenv = require("dotenv");
@@ -17,6 +18,9 @@ dotenv.config();
 
 // URL Local end point: mongodb://localhost:27017
 mongoose.connect(process.env.MONGO_URL);
+
+// use routes.js
+// app.use(routes);
 
 const itemsSchema = {
     name: String

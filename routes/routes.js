@@ -1,16 +1,20 @@
 const express = require("express");
-const app = express();
+const Router = express();
 const _ = require("lodash");
-const { addItemToDo, readAndCreateDefault } = require("../controllers/toDoController");
+const { addItemToDo, readAndCreateDefault, deleteItemToDo, readDynamicURL } = require("../controllers/toDoController");
+
+const router = Router();
 
 // CREATE
-app.post("/", addItemToDo);
+router.post("/", addItemToDo);
 
 // READ Items and Create default if list url done have items
-app.get("/", readAndCreateDefault);
+router.get("/", readAndCreateDefault);
 
 // DELETE
-app.post("/delete", deleteItemToDo);
+router.post("/delete", deleteItemToDo);
 
 // Read Dynamic URL
-app.get("/:customListName", readDynamicURL);
+router.get("/:customListName", readDynamicURL);
+
+module.exports = router;
