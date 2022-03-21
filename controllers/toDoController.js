@@ -38,6 +38,7 @@ function readAndCreateDefault(req, res) {
     });
 };
 
+// DELETE TO DO
 function deleteItemToDo(req, res) {
     let checkItemId = req.body.checkbox;
     let listName = req.body.listName;
@@ -60,6 +61,7 @@ function deleteItemToDo(req, res) {
     }
 }
 
+// Read Dynamic URL
 function readDynamicURL(req, res) {
     const customListName = _.capitalize(req.params.customListName);
     
@@ -83,4 +85,4 @@ function readDynamicURL(req, res) {
     });
 }
 
-module.export = { addItemToDo, readAndCreateDefault, deleteItemToDo, readDynamicURL };
+module.exports = { addItemToDo, readAndCreateDefault, deleteItemToDo, readDynamicURL };

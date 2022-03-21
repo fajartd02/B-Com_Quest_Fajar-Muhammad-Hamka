@@ -1,6 +1,5 @@
 const express = require("express");
-const Router = express();
-const _ = require("lodash");
+const Router = express.Router;
 const { addItemToDo, readAndCreateDefault, deleteItemToDo, readDynamicURL } = require("../controllers/toDoController");
 
 const router = Router();

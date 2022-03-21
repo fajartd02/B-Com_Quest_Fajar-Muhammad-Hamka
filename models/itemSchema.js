@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
+// one to many with items so url can dynamic
 const itemsSchema = {
     name: String
 };
 
-console.log(itemsSchema);
 const Item = mongoose.model("Item", itemsSchema);
 
 // Seed Data / Initial Data
@@ -14,4 +15,4 @@ const item3 = new Item({ name: "Internnet mentee" });
 
 const defaultItems = [item1, item2, item3];
 
-module.export = { itemsSchema, Item, defaultItems };
+module.exports = { itemsSchema, Item, defaultItems };
