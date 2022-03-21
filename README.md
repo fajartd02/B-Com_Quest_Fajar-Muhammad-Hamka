@@ -1,5 +1,5 @@
 # About Me
-Nama: Fajar Muhammad Hamka<br />
+Name: Fajar Muhammad Hamka<br />
 BNCC ID: BNCC2003002
 
 # The Next Level Company Profile TodoList with Dynamic URL
