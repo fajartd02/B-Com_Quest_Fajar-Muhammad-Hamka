@@ -35,6 +35,7 @@ nodemon app.js
 - MongoDB: Mongoose
 - dotenv
 - CSS
+- MVC Architecture Pattern
 
 ## TODO
  - Create ToDo List
