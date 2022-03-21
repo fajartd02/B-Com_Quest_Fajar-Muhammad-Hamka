@@ -4,6 +4,7 @@ const itemsSchema = {
     name: String
 };
 
+console.log(itemsSchema);
 const Item = mongoose.model("Item", itemsSchema);
 
 // Seed Data / Initial Data

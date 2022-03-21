@@ -38,7 +38,7 @@ function readAndCreateDefault(req, res) {
     });
 };
 
-function deleteItemToDo (req, res) {
+function deleteItemToDo(req, res) {
     let checkItemId = req.body.checkbox;
     let listName = req.body.listName;
     console.log(listName);

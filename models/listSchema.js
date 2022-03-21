@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
-const { itemsSchema } = require("./itemSchema");
+const itemsSchema = {
+    name: String
+}; 
+
+console.log(itemsSchema);
 
 const listSchema = {
     name: String,

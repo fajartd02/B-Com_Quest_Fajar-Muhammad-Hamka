@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-// const routes = require("./routes/routes");
+// const routes = require("./routes/routes"); still got error when using MVC
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const dotenv = require("dotenv");
@@ -19,7 +19,7 @@ dotenv.config();
 // URL Local end point: mongodb://localhost:27017
 mongoose.connect(process.env.MONGO_URL);
 
-// use routes.js
+// use routes.js, Got error when use MVC so i not used it for my deadline
 // app.use(routes);
 
 const itemsSchema = {
